@@ -22,3 +22,4 @@ Route::get('homepage', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home', 'HomeController@send')->name('home.send');

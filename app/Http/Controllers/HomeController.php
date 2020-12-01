@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// email
+use App\Mail\SendMail;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -26,4 +29,24 @@ class HomeController extends Controller
         //return view('home');
 		return view('app/home');
     }
+
+	public function send(Request $request)
+	{
+/*
+		dump($request->from);
+		dump($request->to);
+		dump($request->content);
+		dd($request);
+*/
+		$to = [
+			[
+				'email' => 'k.baba88engineer@gmail.com',
+				'name' => 'Test',
+			]
+		];
+
+		Mail::to($to)->send(new SendMail());
+
+		return view('app/home');
+	}
 }
