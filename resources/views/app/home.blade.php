@@ -17,15 +17,15 @@
 {{-- テキストエリア --}}
 							<label class="col-md-2 control-label" for="to">宛先(to)</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="to_free" placeholder="(例) hugahuga@gmail.com" name="to_radio">
-								<input type="text" class="form-control" id="to_const" placeholder="dbの値" name="to_radio" style="display: none;">
+								<input type="text" class="form-control" id="to_free" placeholder="(例) hugahuga@gmail.com" name="free_text_to">
+								<input type="text" class="form-control" id="to_const" placeholder="dbの値" name="const_text_to" style="display: none;">
 							</div>
 {{-- ラジオボタン --}}
 							<div class="col-md-2">
-								<input name="to_radio" id="free_radio_to" type="radio" onclick="mailFormatTo(event)" checked>
+								<input name="free_radio_to" id="free_radio_to" type="radio" onclick="freeRadioTo(event)" checked>
 								<label for="free_radio_to">自由</label>
-								<input name="to_radio" id="const_radio_const" type="radio" onclick="mailFormatTo(event)">
-								<label for="const_radio_const">定型</label>
+								<input name="const_radio_to" id="const_radio_to" type="radio" onclick="constRadioTo(event)">
+								<label for="const_radio_to">定型</label>
 							</div>
 						</div>
 
@@ -61,15 +61,15 @@
 {{-- テキストエリア --}}
 							<label class="col-md-2 control-label" for="content">本文</label>
 							<div class="col-md-8">
-								<textarea class="form-control" id="content_free" placeholder="(例) お疲れ様です。&#13;本日はいいお天気ですね。&#13;以上です。" rows="5" name="content_radio"></textarea>
-								<textarea class="form-control" id="content_const" placeholder="dbの値" rows="5" name="content_radio" style="display: none;"></textarea>
+								<textarea class="form-control" id="content_free" placeholder="(例) お疲れ様です。&#13;本日はいいお天気ですね。&#13;以上です。" rows="5" name="free_text_content"></textarea>
+								<textarea class="form-control" id="content_const" placeholder="dbの値" rows="5" name="const_text_content" style="display: none;"></textarea>
 							</div>
 
 {{-- ラジオボタン --}}
 							<div class="col-md-2">
-								<input name="content_radio" id="free_radio_content" type="radio" onclick="mailFormatContent(event)" checked>
+								<input name="free_radio_content" id="free_radio_content" type="radio" onclick="freeRadioContent(event)" checked>
 								<label for="free_radio_content">自由</label>
-								<input name="content_radio" id="const_radio_content" type="radio" onclick="mailFormatContent(event)">
+								<input name="const_radio_content" id="const_radio_content" type="radio" onclick="constRadioContent(event)">
 								<label for="const_radio_content">定型</label>
 							</div>
 						</div>

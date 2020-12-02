@@ -11,6 +11,12 @@ class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+	// メールの本文
+	public $content;
+
+	// メールの件名
+	public $subject;
+
     /**
      * Create a new message instance.
      *
@@ -28,9 +34,10 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        //return $this->view('view.name');
-		return $this->view('email.send')
-					->from('k.baba88engineer@gmail.com', 'Test')
-					->subject('This is a test mail');
+		$content = $this->content;
+
+		return $this->text('email.send', compact('content'))
+					->from(config('mail.from.address'), config('mail.from.name'))
+					->subject($this->subject);
     }
 }

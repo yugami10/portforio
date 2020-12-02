@@ -42,22 +42,23 @@ class HomeController extends Controller
 
 	public function send(Request $request)
 	{
-/*
-		dump($request->from);
-		dump($request->to);
-		dump($request->content);
-		dd($request);
-*/
+		
 		$to = [
 			[
+				// 'email' => isset($request->free_radio_to) ? $request->free_text_to : $request->const_text_to,
 				'email' => 'k.baba88engineer@gmail.com',
-				'name' => 'Test',
+				'name' => 'Laravel',
 			]
 		];
 
-		Mail::to($to)->send(new SendMail());
+		// 宛先のフォーマットにより取得する値を変更する
+		$objSendMail = new SendMail();
 
-		return view('app/home');
+		$objSendMail->subject = "用意していなかった。。。";
+		$objSendMail->content = isset($request->free_radio_content) ? $request->free_text_content : $request->const_text_content;
+
+		Mail::to($to)->send($objSendMail);
+		return redirect()->route('home');
 	}
 
 	public function logout()
