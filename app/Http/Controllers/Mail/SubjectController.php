@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Mail;
 
-use App\MailAddressTo;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class MailAddressToController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class MailAddressToController extends Controller
      */
     public function index()
     {
-        //
+		dd('indexの表示確認');
     }
 
     /**
@@ -41,10 +41,10 @@ class MailAddressToController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\MailAddressTo  $mailAddressTo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(MailAddressTo $mailAddressTo)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class MailAddressToController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\MailAddressTo  $mailAddressTo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(MailAddressTo $mailAddressTo)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class MailAddressToController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\MailAddressTo  $mailAddressTo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MailAddressTo $mailAddressTo)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class MailAddressToController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\MailAddressTo  $mailAddressTo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MailAddressTo $mailAddressTo)
+    public function destroy($id)
     {
         //
     }

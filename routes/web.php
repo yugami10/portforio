@@ -18,9 +18,15 @@ Route::get('/', function () {
 // 認証関係
 Auth::routes();
 
+// ホーム画面
+Route::get('home', function() {
+	return view('app.top');
+})->name('home');
+
+
 // メール送信機能のホーム画面
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home', 'HomeController@send')->name('home.send');
+Route::get('/send', 'HomeController@index')->name('send.index');
+Route::post('/send', 'HomeController@send')->name('send.post');
 
 // 初期画面
 Route::get('/', function() {
@@ -41,3 +47,25 @@ Route::get('/login', function() {
 Route::post('/login', 'PlayerController@login')->name('login_post');
 
 Route::get('/logout', 'HomeController@logout')->name('logout');
+
+// メールの設定crud ※使わないメソッドは第三引数で、onlyの連想配列形式でホワイトリストを作成する必要あり。
+
+// メールprefix
+Route::prefix('setting')->group(function () {
+
+	// 件名
+	Route::resource('subject', 'Mail\SubjectController');
+
+	// 宛先
+	Route::resource('to', 'Mail\ToController');
+
+	// 本文
+	Route::resource('content', 'Mail\ContentController');
+});
+/*
+// 時間
+Route::resource('time', 'MailSendTimerController');
+
+// 送信
+Route::resource('send', 'SendController');
+*/

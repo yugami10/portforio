@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Mail;
 
 use App\MailContent;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class MailContentController extends Controller
+class ContentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class MailContentController extends Controller
      */
     public function index()
     {
-        //
+		dd('本文の確認');
     }
 
     /**

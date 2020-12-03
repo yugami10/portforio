@@ -13,22 +13,22 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
 			<div class="container">
 				<!--アプリ名-->
-				<a class="navbar-brand">メール自動送信アプリ</a>
+				<a class="navbar-brand" href="{{ route('home') }}">メール自動送信アプリ</a>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<!--ナビゲーションバーの左側-->
 					<ul class="navbar-nav mr-auto">
 						@auth
 						<li class="nav-item">
-							<a class="nav-link" href="{{ route('home') }}">トップページ</a>
+							<a class="nav-link" href="{{ route('send.index') }}">メール送信</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								設定
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="#">宛先</a>
-								<a class="dropdown-item" href="#">本文</a>
-								<a class="dropdown-item" href="#">時間</a>
+								<a class="dropdown-item" href="{{ route('subject.index') }}">件名</a>
+								<a class="dropdown-item" href="{{ route('to.index') }}">宛先</a>
+								<a class="dropdown-item" href="{{ route('content.index') }}">本文</a>
 							</div>
 						</li>
 						@endauth
