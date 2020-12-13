@@ -3,6 +3,7 @@ namespace App\Repositories\Player;
 
 use App\Player;
 use DB;
+
 class PlayerRepository implements PlayerRepositoryInterface
 {
 	protected $model;
@@ -15,5 +16,14 @@ class PlayerRepository implements PlayerRepositoryInterface
 		DB::beginTransaction();
 		$a = $this->model->fill($request->all())->save();
 		DB::commit();
+	}
+
+	public function getPlayerId(Array $colum_items) {
+		$result = $this->model
+			->where('name', $colum_items['name'])
+			->where('password', $colum_items['password'])
+			->first();
+
+		return $result;
 	}
 }

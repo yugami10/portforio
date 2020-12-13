@@ -10,23 +10,38 @@ use Mail;
 // service
 use App\Services\MailService;
 
+// repository
+use App\Repositories\Mail\SubjectRepositoryInterface as SubjectRepository;
+use App\Repositories\Mail\ToRepositoryInterface as ToRepository;
+use App\Repositories\Mail\ContentRepositoryInterface as ContentRepository;
+
 // auth
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class SendController extends Controller
 {
 	protected $MailService;
+	protected $SubjectRepo;
+	protected $ToRepo;
+	protected $ContentRepo;
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct(
-		MailService $MailService
+		MailService $MailService,
+		SubjectRepository $SubjectRepo,
+		ToRepository $ToRepo,
+		ContentRepository $ContentRepo
 	)
     {
         $this->middleware('auth');
 		$this->MailService = $MailService;
+		$this->SubjectRepo = $SubjectRepo;
+		$this->ToRepo = $ToRepo;
+		$this->ContentRepo = $ContentRepo;
     }
 
     /**
@@ -37,7 +52,14 @@ class HomeController extends Controller
     public function index()
     {
         //return view('home');
-		return view('app/send');
+		$user = $this->getLoginUser();
+
+		// ログインユーザーが登録したメールの設定モデルを全件取得する。
+		$subjects = $this->SubjectRepo->getAllByUserId($user->id)->pluck('subject');
+		$tos = $this->ToRepo->getAllByUserId($user->id);
+		$contents = $this->ContentRepo->getAllByUserId($user->id)->pluck('content');
+
+		return view('app/send', compact('subjects', 'tos', 'contents'));
     }
 
 	public function send(Request $request)
@@ -51,7 +73,7 @@ class HomeController extends Controller
 				//'name' => isset($request->free_radio_to_name) ? $request->free_text_to_name : $request->const_text_to_name,
 			]
 		];
-//dd($request->all());
+// dd($request->all());
 // 毎日送信フラグ
 // $request->check_everyday_send_flag;
 // 曜日選択

@@ -7,18 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 // softdelete
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class MailAddressTo extends Model
+class MailSubject extends Model
 {
 	use SoftDeletes;
 
 	// 許可するカラム
-	protected $fillable = ['user_id', 'to', 'name'];
+    protected $fillable = ['user_id', 'subject'];
 
 	// バリデーションのルール
 	protected $rules = [
 		'user_id' => ['bail', 'required', 'integer'],
-		'to' => ['bail', 'required', 'string'],
-		'name' => ['bail', 'required', 'string'],
+		'subject' => ['bail', 'required', 'string'],
 	];
 
 	// バリデーションのルール取得

@@ -27,15 +27,21 @@ class PlayerController extends Controller
 	public function register(Request $request) {
 		$this->PlayerRepo->register($request);
 
-		return view('app.home');
+		return view('app.top');
 	}
 
 	public function login(Request $request) {
-//dump($request->name);
-//dd($request->password);
-		//$a = Auth::loginUsingId(8);
-		$model = Player::find(8);
-		$a = Auth::login($model);
+		// リポジトリからユーザー情報を取得する
+		$user = $this->PlayerRepo->getPlayerId($request->all());
+
+		try {
+			$login = Auth::login($user);
+		} catch (\Exception $e) {
+			logger()->error("ログインすることに失敗しました");
+			logger()->error("{$e->getMessage()} in {$e->getFile()}:{$e->getLine()}");
+
+			return redirect()->back();
+		}
 
 		return redirect()->route('home');
 	}

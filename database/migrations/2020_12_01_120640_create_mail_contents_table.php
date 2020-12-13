@@ -15,7 +15,7 @@ class CreateMailContentsTable extends Migration
     {
         Schema::create('mail_contents', function (Blueprint $table) {
             $table->increments('id');
-			$table->integer('mail_id')->nullable(false)->comment('メールID');
+			$table->integer('user_id')->nullable(false)->comment('ユーザーID');
 			$table->string('content', 1000)->nullable(false)->comment('本文');
 			$table->timestamp('created_at')->useCurrent()->nullable(false)->comment('作成日時');
 			$table->timestamp('updated_at')->useCurrent()->nullable(false)->comment('更新日時');

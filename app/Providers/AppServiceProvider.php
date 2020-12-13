@@ -14,7 +14,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+		// SQL Log
+		\DB::listen(function ($query) {
+			$sql = $query->sql;
+			for ($i = 0; $i < count($query->bindings); $i++) {
+				$sql = preg_replace("/\?/", $query->bindings[$i], $sql, 1);
+			}
+
+			\Log::debug("SQL", ["time" => sprintf("%.2f ms", $query->time), "sql" => $sql]);
+		});
     }
 
     /**
@@ -36,6 +44,21 @@ class AppServiceProvider extends ServiceProvider
 		$this->app->bind(
 			\App\Repositories\Player\PlayerRepositoryInterface::class,
 			\App\Repositories\Player\PlayerRepository::class
+		);
+
+		$this->app->bind(
+			\App\Repositories\Mail\SubjectRepositoryInterface::class,
+			\App\Repositories\Mail\SubjectRepository::class
+		);
+
+		$this->app->bind(
+			\App\Repositories\Mail\ToRepositoryInterface::class,
+			\App\Repositories\Mail\ToRepository::class
+		);
+
+		$this->app->bind(
+			\App\Repositories\Mail\ContentRepositoryInterface::class,
+			\App\Repositories\Mail\ContentRepository::class
 		);
     }
 }

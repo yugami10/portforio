@@ -7,7 +7,17 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
+// 認証
+use Illuminate\Support\Facades\Auth;
+
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+	/*
+		認証されたユーザーのモデルを取得する
+	*/
+	public function getLoginUser() {
+		return Auth::user();
+	}
 }

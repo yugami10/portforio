@@ -18,7 +18,11 @@
 							<label class="col-md-2 control-label" id="subject_label" for="subject_free">件名</label>
 							<div class="col-md-8">
 								<input type="text" class="form-control" id="subject_free" placeholder="(例) 本日の日報" name="free_text_subject">
-								<input type="text" class="form-control" id="subject_const" placeholder="dbの値" name="const_text_subject" style="display: none">
+								<select id="subject_const" name="const_text_subject" class="form-control" style="display: none;">
+									@foreach ($subjects as $subject)
+										<option>{{ $subject }}</option>
+									@endforeach
+                                </select>
 							</div>
 {{-- ラジオボタン --}}
 							<div class="col-md-2">
@@ -36,7 +40,11 @@
 							<label class="col-md-2 control-label" id="to_label" for="to_free">宛先(to)</label>
 							<div class="col-md-8">
 								<input type="text" class="form-control" id="to_free" placeholder="(例) hugahuga@gmail.com" name="free_text_to">
-								<input type="text" class="form-control" id="to_const" placeholder="dbの値" name="const_text_to" style="display: none;">
+								<select id="to_const" name="const_text_to" class="form-control" style="display: none;">
+									@foreach ($tos as $to)
+										<option>{{ $to->to }}</option>
+									@endforeach
+								</select>
 							</div>
 {{-- ラジオボタン --}}
 							<div class="col-md-2">
@@ -49,7 +57,14 @@
 							<label class="col-md-2 contol-label" id="to_name_label" for="to_name_free">|_ 表示名</label>
 							<div class="col-md-8">
 								<input type="text" class="form-control" id="to_name_free" placeholder="(例) 勤怠" name="free_text_to_name">
+								<select id="to_name_const" name="const_text_to_name" class="form-control" style="display: none;">
+									@foreach ($tos as $to)
+										<option>{{ $to->name }}</option>
+									@endforeach
+								</select>
+{{--
 								<input type="text" class="form-control" id="to_name_const" placeholder="dbの値" name="const_text_to_name" style="display: none">
+--}}
 							</div>
 {{-- ラジオボタン --}}
 							<div class="col-md-2">
@@ -91,7 +106,15 @@
 							<label class="col-md-2 control-label" for="content_free" id="content_label">本文</label>
 							<div class="col-md-8">
 								<textarea class="form-control" id="content_free" placeholder="(例) お疲れ様です。&#13;本日はいいお天気ですね。&#13;以上です。" rows="5" name="free_text_content"></textarea>
+
+								<select id="content_const" name="const_text_content" class="form-control" style="display: none;">
+									@foreach ($contents as $content)
+										<option>{{ $content }}</option>
+									@endforeach
+								</select>
+{{--
 								<textarea class="form-control" id="content_const" placeholder="dbの値" rows="5" name="const_text_content" style="display: none;"></textarea>
+--}}
 							</div>
 
 {{-- ラジオボタン --}}
