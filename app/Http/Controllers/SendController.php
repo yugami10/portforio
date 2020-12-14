@@ -67,7 +67,6 @@ class SendController extends Controller
      */
     public function create()
     {
-        //return view('home');
 		$user = $this->getLoginUser();
 
 		// ログインユーザーが登録したメールの設定モデルを全件取得する。

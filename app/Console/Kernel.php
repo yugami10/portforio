@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+		// メール送信
+		Commands\MailSchedule::class,
     ];
 
     /**
@@ -24,8 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+		// 1分ごとにターゲットのメールがあるか確認。あれば送信を行う。
+		$schedule->command('command:sendMail')->everyMinute();
     }
 
     /**

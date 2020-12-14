@@ -87,7 +87,8 @@
 {{-- 曜日選択フォーム --}}
 							<div class="col-md-3 form-group row">
 								<select id="select_day_of_week" name="day_of_week" class="form-control col-md-4" style="margin-right: 10px">
-									@foreach ( config('mail.day_of_week_list.const') as $key => $value )
+									<option></option>
+									@foreach ( config('mail.day_of_week_list.const') as $value )
 										<option>{{ $value }}</option>
 									@endforeach
 								</select>
