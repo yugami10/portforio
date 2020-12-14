@@ -25,8 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-		// 1分ごとにターゲットのメールがあるか確認。あれば送信を行う。
-		$schedule->command('command:sendMail')->everyMinute();
+		// herokuの仕様のため10分ごとにターゲットのメールがあるか確認。あれば送信を行う。
+		$schedule->command('command:sendMail')->everyTenMinutes();
     }
 
     /**

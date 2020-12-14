@@ -57,13 +57,12 @@ class MailSchedule extends Command
 		// 検索する曜日
 		$weekdays = config('mail.day_of_week_list.const');
 		$weekday = $weekdays[Carbon::now()->dayOfWeek];
-//dump(Carbon::now()->timezone);
-//dump(date("Y/m/d H:i:s"));
-//dump($weekday);
+
 		// 検索する時間
-		$end_time = Carbon::now()->format("h:i:") . "59";
+		// 検索対象の時間は herokuのタスクスケジュールの仕様が10分間隔のため10分後までとする
+		$end_time = Carbon::now()->addMinutes(10)->format("h:i:") . "00";
 		$start_time = Carbon::now()->format("h:i:") . "00";
-//dd($end_time,$start_time);
+
 		// 毎日送信にチェックが入っている。もしくは、曜日が今日である。
 		$objMails = $objMails::where('everyday_flag', true)
 			->orWhere('day_of_week', '=', $weekday);
