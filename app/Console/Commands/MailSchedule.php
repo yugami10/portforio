@@ -63,8 +63,6 @@ class MailSchedule extends Command
 		$end_time = Carbon::now()->addMinutes(10)->format("h:i:") . "00";
 		$start_time = Carbon::now()->format("h:i:") . "00";
 
-//dump($end_time);
-//dump($start_time);
 		// 毎日送信にチェックが入っている。もしくは、曜日が今日である。
 		$objMails = $objMails::where('everyday_flag', true)
 			->orWhere('day_of_week', '=', $weekday);
@@ -73,12 +71,10 @@ class MailSchedule extends Command
 		$objMails = $objMails->whereTime('send_time', '>=', $start_time);
 		$objMails = $objMails->whereTime('send_time', '<=', $end_time);
 
-//dd($objMails->get()->toArray());
 		// 対象のモデルが見つかったら、メール送信
 		$this->MailService->sendMail($objMails->get());
 
 		// 処理終了
 		return true;
     }
-
 }

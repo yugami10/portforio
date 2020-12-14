@@ -32,6 +32,7 @@ class MailService
 			$now_less_send_time = Carbon::now()->lte($value);
 			$now_more_send_time = Carbon::now()->addMinutes(10)->gte($value);
 
+			// herokuの条件に合わせる(タイムスケジュールが10分間隔で実行のこと)
 			if ($now_less_send_time && $now_more_send_time) {
 				$to = [
 					[
