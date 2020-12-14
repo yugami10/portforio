@@ -38,7 +38,7 @@ class Mail extends Model
 			$rules['day_of_week'][] = 'required';
 		}
 
-		if (!($data['day_of_week'])) {
+		if (!isset(($data['day_of_week']))) {
 			$rules['everyday_flag'][] = 'required';
 		}
 

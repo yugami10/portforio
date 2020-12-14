@@ -35,6 +35,9 @@ class MailRepository implements MailRepositoryInterface
 
 		$mailArr = $objMail->toArray();
 
+		// day_of_weekがnullなら削除
+		if (is_null($mailArr['day_of_week'])) unset($mailArr['day_of_week']);
+
 		// バリデーション
 		$validationRule = $objMail->validationRules($mailArr);
 		$validator = Validator::make($mailArr, $validationRule);
