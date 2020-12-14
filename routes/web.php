@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
+
 // 認証関係
 Auth::routes();
 
@@ -45,6 +46,7 @@ Route::get('/login', function() {
 	return view('login');
 })->name('login_get');
 Route::post('/login', 'PlayerController@login')->name('login_post');
+
 
 Route::get('/logout', 'SendController@logout')->name('logout');
 

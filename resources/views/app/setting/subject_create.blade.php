@@ -20,7 +20,7 @@
 							</div>
 						</div>
 						<button type="submit" class="btn btn-primary">追加</button>
-						<button class="btn btn-primary" onclick="history.back()">戻る</button>
+						<a class="btn btn-primary" href="{{ url('setting/subject') }}">戻る</a>
 					</form>
 				</div>
 			</div>

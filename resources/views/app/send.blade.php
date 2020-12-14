@@ -33,7 +33,6 @@
 							</div>
 						</div>
 
-
 {{-- 宛先(to) --}}
 						<div class="form-group row">
 {{-- テキストエリア --}}
@@ -88,8 +87,9 @@
 {{-- 曜日選択フォーム --}}
 							<div class="col-md-3 form-group row">
 								<select id="select_day_of_week" name="select_day_of_week" class="form-control col-md-4" style="margin-right: 10px">
-									<option>A</option>
-									<option>B</option>
+									@foreach ( config('mail.day_of_week_list.const') as $key => $value )
+										<option>{{ $value }}</option>
+									@endforeach
 								</select>
 								<label for="select_day_of_week">曜日のみ送信</label>
 							</div>

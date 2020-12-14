@@ -15,7 +15,7 @@ class CreateMailsTable extends Migration
     {
         Schema::create('mails', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('player_id')->nullable(false)->comment('ユーザーID');
+            $table->integer('user_id')->nullable(false)->comment('ユーザーID');
 			$table->string('to', 100)->nullable(false)->comment('宛先');
 			$table->string('content', 1000)->nullable(false)->comment('本文');
 			$table->boolean('everyday_flag')->nullable(true)->comment('毎日送信フラグ');

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 // Auth
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Player extends Authenticatable
