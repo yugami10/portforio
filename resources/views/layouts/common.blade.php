@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<!--タブに表示されるタイトル-->
-		<title>@yield('title')</title>
+		<title>タスクスケジュールによるメール自動送信</title>
 		<!--bootstrapのcssを適用する-->
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 		<!--bootstrapのdropdownを使用するために追加-->

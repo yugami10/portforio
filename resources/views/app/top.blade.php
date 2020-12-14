@@ -1,5 +1,4 @@
 @extends('layouts.common')
-@section('title', 'test')
 @section('content')
 
 

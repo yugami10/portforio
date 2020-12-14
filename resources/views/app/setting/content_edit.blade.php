@@ -1,5 +1,4 @@
 @extends('layouts.common')
-@section('title', '本文の編集')
 @section('content')
 
 <div class="container">
