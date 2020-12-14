@@ -32,7 +32,7 @@ class ContentController extends Controller
 		$user = $this->getLoginUser();
 
 		// 本文モデルを全件取得
-		$contents = $this->ContentRepo->getAllWithTrashedByUserId($user->id);
+		$contents = $this->ContentRepo->getAllWithTrashedByUserId($user->id)->paginate(2);
 
 		// 画面の表示
 		return view('app.setting.content', compact('contents'));

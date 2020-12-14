@@ -52,6 +52,7 @@
 									@endforeach
 								</tbody>
 							</table>
+							{{ $tos->links() }}
 						</div>
 					</form>
 				</div>

@@ -23,7 +23,7 @@ class ContentRepository implements ContentRepositoryInterface
 		削除済みを含めた、ユーザーIDが一致するモデルを全件取得する
 	*/
 	public function getAllWithTrashedByUserId($user_id) {
-		$result = MailContent::where('user_id', $user_id)->withTrashed()->get();
+		$result = MailContent::where('user_id', $user_id)->withTrashed();
 
 		return $result;
 	}

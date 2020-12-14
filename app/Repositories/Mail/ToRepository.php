@@ -23,7 +23,7 @@ class ToRepository implements ToRepositoryInterface
 		削除済みを含めた、ユーザーIDが一致するモデルを全件取得する
 	*/
 	public function getAllWithTrashedByUserId($user_id) {
-		$result = MailAddressTo::where('user_id', $user_id)->withTrashed()->get();
+		$result = MailAddressTo::where('user_id', $user_id)->withTrashed();
 
 		return $result;
 	}

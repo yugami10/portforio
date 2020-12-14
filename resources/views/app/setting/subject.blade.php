@@ -50,6 +50,7 @@
 									@endforeach
 								</tbody>
 							</table>
+							{{ $subjects->links() }}
 						</div>
 					</form>
 				</div>

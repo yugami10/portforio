@@ -32,7 +32,7 @@ class ToController extends Controller
 		$user = $this->getLoginUser();
 
 		// 宛先モデルを全件取得
-		$tos = $this->ToRepo->getAllWithTrashedByUserId($user->id);
+		$tos = $this->ToRepo->getAllWithTrashedByUserId($user->id)->paginate(2);
 
 		// 画面の表示
 		return view('app.setting.to', compact('tos'));

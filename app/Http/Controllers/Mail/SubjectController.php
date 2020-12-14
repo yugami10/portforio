@@ -31,7 +31,7 @@ class SubjectController extends Controller
 		$user = $this->getLoginUser();
 
 		// 件名モデルを全件取得
-		$subjects = $this->SubjectRepo->getAllWithTrashedByUserId($user->id);
+		$subjects = $this->SubjectRepo->getAllWithTrashedByUserId($user->id)->paginate(2);
 
 		// 画面の表示
 		return view('app.setting.subject', compact('subjects'));

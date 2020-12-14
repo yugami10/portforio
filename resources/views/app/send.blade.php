@@ -80,13 +80,13 @@
 {{-- 毎日送信フラグ --}}
 							<div class="col-md-2 form-check">
 								<div style="padding-left: 15px">
-									<input class="form-check-input" type="checkbox"  id="check_everyday_send_flag" name="check_everyday_send_flag">
+									<input class="form-check-input" type="checkbox"  id="check_everyday_send_flag" name="everyday_flag">
 									<label class="form-check-label" for="check_everyday_send_flag">毎日送信</label>
 								</div>
 							</div>
 {{-- 曜日選択フォーム --}}
 							<div class="col-md-3 form-group row">
-								<select id="select_day_of_week" name="select_day_of_week" class="form-control col-md-4" style="margin-right: 10px">
+								<select id="select_day_of_week" name="day_of_week" class="form-control col-md-4" style="margin-right: 10px">
 									@foreach ( config('mail.day_of_week_list.const') as $key => $value )
 										<option>{{ $value }}</option>
 									@endforeach
@@ -96,7 +96,7 @@
 
 {{-- 送信時間フォーム --}}
 							<div class="offset-md-2 col-md-4 row">
-								<input class="form-control" type="time" id="input_send_time" name="input_send_time" style="margin-right: 10px">
+								<input class="form-control" type="time" id="input_send_time" name="send_time" style="margin-right: 10px">
 							</div>
 							<label for="input_send_time">送信時間</label>
 						</div>

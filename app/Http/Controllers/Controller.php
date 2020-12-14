@@ -18,6 +18,10 @@ class Controller extends BaseController
 		認証されたユーザーのモデルを取得する
 	*/
 	public function getLoginUser() {
-		return Auth::user();
+		$result = Auth::user();
+
+		if (!isset($result)) return abort(401, 'Unauthorized.');
+
+		return $result;
 	}
 }

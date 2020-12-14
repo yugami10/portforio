@@ -20,7 +20,7 @@ class CreateMailsTable extends Migration
 			$table->string('content', 1000)->nullable(false)->comment('本文');
 			$table->boolean('everyday_flag')->nullable(true)->comment('毎日送信フラグ');
 			$table->string('day_of_week', 1)->nullable(true)->comment('毎週送信する曜日');
-			$table->dateTime('send_time')->nullable(false)->comment('送信時間');
+			$table->time('send_time')->nullable(false)->comment('送信時間');
 			$table->dateTime('created_at')->useCurrent()->nullable(false)->comment('作成日時');
 			$table->dateTime('updated_at')->useCurrent()->nullable(false)->comment('更新日時');
         });

@@ -20,21 +20,26 @@ Route::get('/', function () {
 Auth::routes();
 
 // ホーム画面
+/*
 Route::get('home', function() {
 	return view('app.top');
 })->name('home');
-
+*/
+Route::get('home', 'SendController@index')->name('home');
 
 // メール送信機能のホーム画面
-Route::get('/send', 'SendController@index')->name('send.index');
-Route::post('/send', 'SendController@send')->name('send.post');
+Route::get('/send', 'SendController@create')->name('send.index');
+Route::post('/send', 'SendController@store')->name('send.post');
+Route::get('/send/{id}/delete', 'SendController@destroy')->name('send.destroy');
 
 // 初期画面
+
 Route::get('/', function() {
 	return view('app.top');
 // 未ログイン時の画面を作成して表示させる
 })->name('login');
 
+//Route::get('home', 'SendController@index')->name('login');
 
 // ユーザー登録、ログイン、ログアウト
 Route::get('/register', function() {

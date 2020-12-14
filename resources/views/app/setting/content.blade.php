@@ -50,6 +50,7 @@
 									@endforeach
 								</tbody>
 							</table>
+							{{ $contents->links() }}
 						</div>
 					</form>
 				</div>
