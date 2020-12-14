@@ -69,7 +69,7 @@ class MailSchedule extends Command
 
 		// 現在がメールモデルの該当日の時間か、carbonを使って確認する
 		$objMails = $objMails->where('send_time', '>=' , $start_time)
-			->orWhere('send_time', '<=', $end_time);
+			->where('send_time', '<=', $end_time);
 
 		// 対象のモデルが見つかったら、メール送信
 		$this->MailService->sendMail($objMails->get());
