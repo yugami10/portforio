@@ -14,7 +14,7 @@
 {{-- 本文 --}}
 						<div class="form-group row">
 							<label class="col-md-2 control-label" id="content_create_label" for="content_create">本文</label>                            <div class="col-md-8">
-								<input type="text" class="form-control" id="content_create" name="content_create" placeholder="(例) 日報" autofocus>
+								<textarea class="form-control" id="content_create" name="content_create" placeholder="(例) お疲れ様です。" rows="5" autofocus></textarea>
 							</div>
 						</div>
 						<button type="submit" class="btn btn-primary">追加</button>

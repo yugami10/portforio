@@ -16,7 +16,7 @@
 						<div class="form-group row">
 							<label class="col-md-2 control-label" id="content_edit_label" for="content_edit">本文</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="content_edit" name="content" value="{{ $content->content }}" autofocus>
+								<textarea class="form-control" id="content_edit" name="content" rows="5" autofocus>{{ $content->content }}</textarea>
 							</div>
 						</div>
 						<button type="submit" class="btn btn-primary">変更</button>
