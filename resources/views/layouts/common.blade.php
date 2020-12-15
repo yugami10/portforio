@@ -19,7 +19,10 @@
 					<ul class="navbar-nav mr-auto">
 						@auth
 						<li class="nav-item">
-							<a class="nav-link" href="{{ route('send.index') }}">メール送信</a>
+							<a class="nav-link" href="{{ route('home') }}">送信メールの一覧画面</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ route('send.index') }}">メール文作成</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
